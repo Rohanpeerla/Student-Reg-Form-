@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form For GITAM Admission</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f0f4ff, #d9e6f2);
+            margin: 0;
+            padding: 0;
+        }
+        h2 { text-align: center; color: #003366; margin-top: 20px; }
+        form {
+            background: #ffffff;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+        }
+        h3 {
+            color: #00509e;
+            margin-bottom: 10px;
+            border-left: 5px solid #ff6600;
+            padding-left: 10px;
+        }
+        label {
+            display: inline-block;
+            width: 220px;
+            font-weight: bold;
+            margin: 8px 0;
+            color: #333;
+        }
+        input, select {
+            width: 60%;
+            padding: 8px;
+            margin: 6px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 12px;
+            background-color: #00509e;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover { background-color: #003366; }
+    </style>
+</head>
+<body>
+    <h2>Student Registration Form For GITAM Admission</h2>
+    <form id="registrationForm">
+
+        <!-- Personal Details -->
+        <h3>Personal Details</h3>
+        <label>Full Name:</label><input type="text" id="fullname" required><br>
+        <label>Gender:</label>
+        <select id="gender">
+            <option value="Male">Male</option><option value="Female">Female</option><option value="Other">Other</option>
+        </select><br>
+        <label>Date of Birth:</label><input type="date" id="dob" required><br>
+        <label>Nationality:</label><input type="text" id="nationality" required><br>
+        <label>Aadhar Number:</label><input type="text" id="aadhar" required><br>
+        <label>Email:</label><input type="email" id="email" required><br>
+        <label>Phone Number:</label><input type="tel" id="phone" required><br>
+
+        <!-- Address -->
+        <h3>Address Details</h3>
+        <label>Address Line 1:</label><input type="text" id="address1" required><br>
+        <label>Address Line 2:</label><input type="text" id="address2"><br>
+        <label>City:</label><input type="text" id="city" required><br>
+        <label>State:</label><input type="text" id="state" required><br>
+        <label>Pincode:</label><input type="text" id="pincode" required><br>
+
+        <!-- Academic -->
+        <h3>Academic Details</h3>
+        <label>Previous School Name:</label><input type="text" id="prevSchool" required><br>
+        <label>Previous College Name:</label><input type="text" id="prevInstitution" required><br>
+        <label>10th Year of Passing:</label><input type="number" id="tenthYear" required><br>
+        <label>10th Percentage:</label><input type="number" step="0.01" id="tenthPercentage" required><br>
+        <label>12th Year of Passing:</label><input type="number" id="twelfthYear" required><br>
+        <label>12th Percentage:</label><input type="number" step="0.01" id="twelfthPercentage" required><br>
+        <label>Entrance Exam Details:</label><input type="text" id="entranceExam"><br>
+
+        <!-- Course -->
+        <h3>Course Details</h3>
+        <label>Course Applied For:</label><input type="text" id="courseApplied" required><br>
+        <label>Specialization Domain:</label>
+        <select id="specialization">
+            <option value="AIML">AI & ML</option><option value="CSE Core">CSE Core</option>
+            <option value="Data Science">Data Science</option><option value="Cyber Security">Cyber Security</option>
+        </select><br>
+        <label>Admission Type:</label>
+        <select id="admissionType">
+            <option value="Direct Entry">Direct Entry</option>
+            <option value="Lateral Entry">Lateral Entry</option>
+            <option value="Quota">Quota</option>
+        </select><br>
+        <label>Enrollment Number:</label><input type="text" id="enrollment" readonly placeholder="Assigned by GITAM"><br>
+
+        <!-- Parent -->
+        <h3>Parent/Guardian Details</h3>
+        <label>Father’s Name:</label><input type="text" id="FatherName" required><br>
+        <label>Father’s Occupation:</label><input type="text" id="FatherOccupation"><br>
+        <label>Mother’s Name:</label><input type="text" id="motherName" required><br>
+        <label>Mother’s Occupation:</label><input type="text" id="MotherOccupation"><br>
+        <label>Parents Contact:</label><input type="tel" id="parentsContact" required><br>
+        <label>Parents Email:</label><input type="email" id="parentsEmail" required><br>
+        <label>Parents Income:</label><input type="number" id="parentsIncome"><br>
+
+        <!-- Other Info -->
+        <h3>Other Information</h3>
+        <label>Hostel Requirement:</label>
+        <select id="hostel"><option value="Yes">Yes</option><option value="No">No</option></select><br>
+        <label>Transportation Requirement:</label>
+        <select id="transport"><option value="Yes">Yes</option><option value="No">No</option></select><br>
+        <label>Any Medical Condition:</label><input type="text" id="medicalCondition"><br>
+
+        <!-- Extra -->
+        <h3>Fee & Scholarship</h3>
+        <label>Scholarship Required:</label>
+        <select id="scholarship"><option value="Yes">Yes</option><option value="No">No</option></select><br>
+        <label>Bank Account Number:</label><input type="text" id="bankAccount"><br>
+        <label>IFSC Code:</label><input type="text" id="ifsc"><br>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const data = {
+                fullname: fullname.value, gender: gender.value, dob: dob.value,
+                nationality: nationality.value, aadhar: aadhar.value,
+                email: email.value, phone: phone.value,
+
+                address1: address1.value, address2: address2.value,
+                city: city.value, state: state.value, pincode: pincode.value,
+
+                prevSchool: prevSchool.value, prevInstitution: prevInstitution.value,
+                tenthYear: tenthYear.value, tenthPercentage: tenthPercentage.value,
+                twelfthYear: twelfthYear.value, twelfthPercentage: twelfthPercentage.value,
+                entranceExam: entranceExam.value,
+
+                courseApplied: courseApplied.value, specialization: specialization.value,
+                admissionType: admissionType.value, enrollment: enrollment.value,
+
+                FatherName: FatherName.value, FatherOccupation: FatherOccupation.value,
+                motherName: motherName.value, MotherOccupation: MotherOccupation.value,
+                parentsContact: parentsContact.value, parentsEmail: parentsEmail.value,
+                parentsIncome: parentsIncome.value,
+
+                hostel: hostel.value, transport: transport.value,
+                medicalCondition: medicalCondition.value,
+
+                scholarship: scholarship.value, bankAccount: bankAccount.value, ifsc: ifsc.value
+            };
+
+            fetch("http://localhost:5004/register", {
+                method: "POST", headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => alert(result.message))
+            .catch(error => console.error("Error:", error));
+        });
+    </script>
+</body>
+</html>
